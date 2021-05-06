@@ -146,10 +146,6 @@ public class Util {
 			String strData = (String) data;
 
 			return strData.trim().length() == 0;
-		} else if (data instanceof Integer) {
-			Integer integerData = (Integer) data;
-
-			return integerData != 0;
 		} else if (data instanceof List) {
 			List listData = (List) data;
 
@@ -160,11 +156,11 @@ public class Util {
 			return mapData.isEmpty();
 		}
 
-		return true;
+		return false;
 	}
 
 	public static <T> T ifEmpty(T data, T defaultValue) {
-		if ( isEmpty(data) ) {
+		if (isEmpty(data)) {
 			return defaultValue;
 		}
 
@@ -231,7 +227,8 @@ public class Util {
 	}
 
 	public static List<Integer> getListDividedBy(String str, String divideBy) {
-		return Arrays.asList(str.split(divideBy)).stream().map(s -> Integer.parseInt(s.trim())).collect(Collectors.toList());
+		return Arrays.asList(str.split(divideBy)).stream().map(s -> Integer.parseInt(s.trim()))
+				.collect(Collectors.toList());
 	}
 
 	public static boolean delteFile(String filePath) {
@@ -254,16 +251,16 @@ public class Util {
 	}
 
 	public static boolean allNumberString(String str) {
-		if ( str == null ) {
+		if (str == null) {
 			return false;
 		}
 
-		if ( str.length() == 0 ) {
+		if (str.length() == 0) {
 			return true;
 		}
 
-		for ( int i = 0; i < str.length(); i++ ) {
-			if ( Character.isDigit(str.charAt(i)) == false ) {
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isDigit(str.charAt(i)) == false) {
 				return false;
 			}
 		}
@@ -272,11 +269,11 @@ public class Util {
 	}
 
 	public static boolean startsWithNumberString(String str) {
-		if ( str == null ) {
+		if (str == null) {
 			return false;
 		}
 
-		if ( str.length() == 0 ) {
+		if (str.length() == 0) {
 			return false;
 		}
 
@@ -284,11 +281,11 @@ public class Util {
 	}
 
 	public static boolean isStandardLoginIdString(String str) {
-		if ( str == null ) {
+		if (str == null) {
 			return false;
 		}
 
-		if ( str.length() == 0 ) {
+		if (str.length() == 0) {
 			return false;
 		}
 
